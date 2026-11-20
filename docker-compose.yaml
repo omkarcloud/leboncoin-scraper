@@ -1,0 +1,11 @@
+services:
+  leboncoin-scraper:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      # Leboncoin works from your own connection, no proxy needed. If Leboncoin starts
+      # refusing you at volume, set LEBONCOIN_PROXY to a French residential proxy:
+      # - LEBONCOIN_PROXY=http://user:pass@host:port
